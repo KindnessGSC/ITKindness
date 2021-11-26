@@ -49,11 +49,8 @@
             </div>
         </header>
         <div class="intro">
-            <div class="video">
-                <video playsinline preload="auto" poster="img\intro\Background/Background-Video-Static.jpg" class="video__media" autoplay="autoplay" loop="loop" muted="muted">
-                    <source src="videos/Main.mp4" type="video/mp4">
-                    <source src="videos/Main.webm" type="video/webm">
-                </video>
+            <div id="video" class="video">
+                
             </div>
             <div class="container">
                 <div class="intro-content">
@@ -92,6 +89,12 @@
             smartBackspace: true, // this is a default
             loop: true
         });
+    </script>
+    <script>
+        window.onload = function(){
+            if(window.innerWidth >= 1024)
+            document.getElementById('video').innerHTML = '<video playsinline preload="auto" poster="img/intro/Background/Background-Video-Static.jpg" class="video__media" autoplay="autoplay" loop="loop" muted="muted"><source src="videos/Main.mp4" type="video/mp4"><source src="videos/Main.webm" type="video/webm"></video>'
+        };
     </script>
 </body>
 </html>
