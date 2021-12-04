@@ -16,7 +16,11 @@
                 <div class="auth__form-content">
                     <div class="form">
                         <form action="#" method="post" id="form" class="form__content" autocomplete="off">
-                            <h1 class="form__title">Войдите в свой профиль</h1>
+                            <h1 class="form__title">Создайте свой профиль</h1>
+                            <div class="form__item">
+                                <input id="formName" type="text" inputmode="text" name="name" class="form__input" placeholder=" " required>
+                                <label for="formName" class="form__label">Имя</label>
+                            </div>
                             <div class="form__item">
                                 <input id="formEmail" type="email" name="email" inputmode="email" class="form__input" placeholder=" " required>
                                 <label for="formEmail" class="form__label">Электронная почта</label>
@@ -25,10 +29,14 @@
                                 <input id="formPassword" type="password" name="password" class="form__input" placeholder=" " required>
                                 <label for="formPassword" class="form__label">Пароль</label>
                             </div>
-                            <button type="submit" class="form__button">Войти</button>
+                            <div class="form__item">
+                                <input id="formAgreement" type="checkbox" name="agreement" class="checkbox__input" required>
+                                <label for="formAgreement" class="checkbox__label" ><span>Я даю свое согласие на обработку персональных данных в соотвествии с <a href="">условиями</a></span></label>
+                            </div>
+                            <button type="submit" class="form__button">Зарегистрироваться</button>
                         </form>
                         <div class="form__tab">
-                            Еще нет профиля? <a href="/reg.html">Зарегистрируйтесь</a>
+                            У вас уже есть профиль? <a href="/auth.html">Войдите</a>
                         </div>
                     </div>
                 </div>
