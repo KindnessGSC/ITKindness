@@ -22,8 +22,10 @@
 
 body {
     font-family: "Montserrat";
-    background-color: #1f1f1f;
+    background-color: #101920;
     height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
 }
 
 .container {
@@ -32,10 +34,13 @@ body {
     margin: 0 auto;
 }
 
+.wrapper {
+    padding: 25px;
+}
+
 .auth {
     display: flex;
     align-items: center;
-    text-align: center;
     height: 100vh;
 }
 
@@ -44,79 +49,190 @@ body {
     width: 30%;
     height: 75%;
     display: flex;
+    justify-content: center;
+    align-items: center;
     margin: 0 auto;
-    box-shadow: 0px 0px 10px gold;
-
-    animation: box-shadow-rainbow 3s infinite;
-    -webkit-animation: box-shadow-rainbow 3s infinite;
-    -moz-animation: box-shadow-rainbow 3s infinite;
-    -o-animation: box-shadow-rainbow 3s infinite;
 }
-
-@keyframes box-shadow-rainbow {
-    0% { box-shadow: 0px 0px 10px red; }
-    16.6% { box-shadow: 0px 0px 10px orange; }
-    33.2% { box-shadow: 0px 0px 10px yellow; }
-    49.8% { box-shadow: 0px 0px 10px green; }
-    66.4% { box-shadow: 0px 0px 10px blue; }
-    83% { box-shadow: 0px 0px 10px darkblue; }
-    100% { box-shadow: 0px 0px 10px purple; }
-} 
-
-@-webkit-keyframes box-shadow-rainbow {
-    0% { box-shadow: 0px 0px 10px red; }
-    16.6% { box-shadow: 0px 0px 10px orange; }
-    33.2% { box-shadow: 0px 0px 10px yellow; }
-    49.8% { box-shadow: 0px 0px 10px green; }
-    66.4% { box-shadow: 0px 0px 10px blue; }
-    83% { box-shadow: 0px 0px 10px darkblue; }
-    100% { box-shadow: 0px 0px 10px purple; }
-} 
-
-@-moz-keyframes box-shadow-rainbow {
-    0% { box-shadow: 0px 0px 10px red; }
-    16.6% { box-shadow: 0px 0px 10px orange; }
-    33.2% { box-shadow: 0px 0px 10px yellow; }
-    49.8% { box-shadow: 0px 0px 10px green; }
-    66.4% { box-shadow: 0px 0px 10px blue; }
-    83% { box-shadow: 0px 0px 10px darkblue; }
-    100% { box-shadow: 0px 0px 10px purple; }
-} 
-
-@-o-keyframes box-shadow-rainbow {
-    0% { box-shadow: 0px 0px 10px red; }
-    16.6% { box-shadow: 0px 0px 10px orange; }
-    33.2% { box-shadow: 0px 0px 10px yellow; }
-    49.8% { box-shadow: 0px 0px 10px green; }
-    66.4% { box-shadow: 0px 0px 10px blue; }
-    83% { box-shadow: 0px 0px 10px darkblue; }
-    100% { box-shadow: 0px 0px 10px purple; }
-} 
 
 .auth__form-content {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    
     padding: 20px;
 }
 
 .form__title {
-    font-size: 20px;
+    font-size: 25px;
     color: #ffff;
     font-weight: 600;
-    margin-top: 25px;
+    margin: 0px 0px 45px 0px;
+    text-align: center;
 }
 
-.form__logo {
-    font-size: 75px;
-    color: #1f1f1f;
-    font-weight: 800;
+.form__item {
+    margin: 0px 0px 30px 0px;
+    position: relative;
 }
 
-.form__logo span {
+.form__label {
+    font-size: 18px;
+    display: block;
+    margin: 0px 0px 10px 0px;
+    color: #fff;
+
+    position: absolute;
+    top: 0px;
+    z-index: -1;
+    transition: all .3s ease-in-out;
+}
+
+.form__input {
+    width: 100%;
+    padding: 0px 0px 10px 0px;
+    border: none;
+    color: #fff;
+    border-bottom: 1px solid #383838;
+    background-color: transparent;
+    transition: all .3s ease-in-out;
+    user-select: none;
+}
+
+.form__input:focus {
+    border-bottom: 1px solid #ffff;
+}
+
+.form__input:focus ~ .form__label, .form__input:not(:placeholder-shown) ~ .form__label {
+    top: -18px;
+    font-size: 12px;
+}
+
+.form__button {
     display: inline-block;
-    background-color: #fff;
-    border-radius: 50px;
-    padding: 10px 15px 10px 15px;
+    padding: 20px 20px;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    color: #ffff;
+    font-weight: 700;
+    font-size: 20px;
+    text-align: center;
+    border: 4px solid #ffff;
+    position: relative;
+    background-color: transparent;
+    transition: all .2s ease-in-out;
 }
 
+.form__button::before {
+    content: ' ';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ffff;
+    z-index: -1;
+    transition: all .5s ease-in-out;
+    transform-origin: 0 0;
+    transition-timing-function: cubic-bezier(0.5, 1.6, 0.4, 0.7);
+
+    transform: scaleY(0);
+}
+
+.form__button:hover {
+    color: #1f1f1f;
+}
+
+.form__button:hover::before {
+    transform: scaleY(1);
+}
+
+.form__checkbox {
+    display: flex;
+}
+
+.checkbox__label {
+    color: #fff;
+    line-height: 145%;
+    align-items: center;
+    display: flex;
+    position: relative;
+}
+
+.checkbox__label span {
+    cursor: pointer;
+}
+
+.checkbox__label::before {
+    content: ' ';
+    flex: 0 0 24px;
+    align-self: flex-start;
+    height: 24px;
+    background-color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 0px 10px 0px 0px;
+}
+
+.checkbox__label::after {
+    content: ' ';
+    width: 16px;
+    height: 16px;
+    border-radius: 4px;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    background-color: #5af31e;
+    transform: scale(0);
+    transition: transform .1s ease-in-out;
+}
+
+
+
+.checkbox__label a {
+    color: #5af31e;
+    text-decoration: underline;
+}
+
+.checkbox__label a:hover {
+    color: #5af31e;
+    text-decoration: underline;
+}
+
+.checkbox__label a:visited {
+    color: #5af31e;
+    text-decoration: underline;
+}
+
+.checkbox__input {
+    display: none;
+}
+
+.checkbox__input:checked ~ .checkbox__label::after {
+    cursor: pointer;
+    transform: scale(1);
+}    
+
+
+.form__tab {
+    text-align: center;
+    margin-top: 30px;
+    color: #fff;
+}
+
+.form__tab a {
+    cursor: pointer;
+    text-decoration: underline;
+    color: #fff;
+}
+
+.form__tab a:hover {
+    cursor: pointer;
+    text-decoration: underline;
+    color: #fff;
+}
+
+.form__tab a:visited {
+    cursor: pointer;
+    text-decoration: underline;
+    color: #fff;
+}
